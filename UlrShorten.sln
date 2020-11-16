@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{A502E2B3-E03F-484C-8AED-20CE4593308F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{326E2DDB-2D65-4B47-B077-922F0D2E71C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dal", "Dal", "{4FBAE377-0ED9-4CB9-906B-17E7EA56179F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6170B130-F575-443C-9FB1-B3258A57BC09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShorten.Web", "UrlShorten.Web\UrlShorten.Web.csproj", "{1A0D006B-CF87-429E-8361-5B031FE404C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UlrShorten.Domain", "UlrShorten.Domain\UlrShorten.Domain.csproj", "{995452A3-0E1F-46A2-9EA0-06A0A8F538BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A0D006B-CF87-429E-8361-5B031FE404C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0D006B-CF87-429E-8361-5B031FE404C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0D006B-CF87-429E-8361-5B031FE404C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0D006B-CF87-429E-8361-5B031FE404C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995452A3-0E1F-46A2-9EA0-06A0A8F538BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995452A3-0E1F-46A2-9EA0-06A0A8F538BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995452A3-0E1F-46A2-9EA0-06A0A8F538BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995452A3-0E1F-46A2-9EA0-06A0A8F538BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A0D006B-CF87-429E-8361-5B031FE404C6} = {A502E2B3-E03F-484C-8AED-20CE4593308F}
+		{995452A3-0E1F-46A2-9EA0-06A0A8F538BF} = {326E2DDB-2D65-4B47-B077-922F0D2E71C2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E8A2D41-C0EF-4156-A1DD-93BA90177852}
+	EndGlobalSection
+EndGlobal
