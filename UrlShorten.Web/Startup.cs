@@ -9,6 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Primitives;
+using UlrShorten.Domain.Interfaces;
+using UlrShorten.Services;
 using UrlShorten.Web.Data;
 
 namespace UrlShorten.Web
@@ -29,6 +32,7 @@ namespace UrlShorten.Web
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddTransient<IUserAgentService, UserAgentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +54,11 @@ namespace UrlShorten.Web
 
             app.Use((req, next) =>
             {
+                var uaParsers = app.ApplicationServices.GetRequiredService<IUserAgentService>();
+                var uaHeader = StringValues.Empty;
+                req.Request.Headers.TryGetValue("User-Agent", out uaHeader);
+                var parsed = uaParsers.ParserUserAgent(uaHeader);
+
                 var path = req.Request.Path.ToString();
                 if (path != "/" && path != "/admin")
                 {

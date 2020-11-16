@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UlrShorten.Domain\UlrShorten.Domain.csproj" />
+    <ProjectReference Include="..\UlrShorten.Services\UlrShorten.Services.csproj" />
+  </ItemGroup>
+
 </Project>
