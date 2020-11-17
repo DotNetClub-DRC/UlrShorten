@@ -13,6 +13,7 @@ using Microsoft.Extensions.Primitives;
 using UlrShorten.Domain.Interfaces;
 using UlrShorten.Services;
 using UrlShorten.Web.Data;
+using UrlShorten.Web.Middleware;
 
 namespace UrlShorten.Web
 {
@@ -52,21 +53,7 @@ namespace UrlShorten.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.Use((req, next) =>
-            {
-                var uaParsers = app.ApplicationServices.GetRequiredService<IUserAgentService>();
-                var uaHeader = StringValues.Empty;
-                req.Request.Headers.TryGetValue("User-Agent", out uaHeader);
-                var parsed = uaParsers.ParserUserAgent(uaHeader);
-
-                var path = req.Request.Path.ToString();
-                if (path != "/" && path != "/admin")
-                {
-                    req.Response.Redirect("https://github.com/SudiDav");
-                }
-
-                return next();
-            });
+            app.UseShortUrlRedirect();
 
             app.UseRouting();
 
