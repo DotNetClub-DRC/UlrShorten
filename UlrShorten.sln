@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UlrShorten.Domain", "UlrSho
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{ECA7B9B8-0EEA-44C5-A0E3-E8857B13E184}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UlrShorten.Services", "UlrShorten.Services\UlrShorten.Services.csproj", "{441B10BC-D538-45EA-AC0D-E7CA3D668459}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UlrShorten.Services", "UlrShorten.Services\UlrShorten.Services.csproj", "{441B10BC-D538-45EA-AC0D-E7CA3D668459}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

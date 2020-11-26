@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Primitives;
 using UlrShorten.Domain.Interfaces;
 
 namespace UrlShorten.Web.Middleware
@@ -19,14 +16,19 @@ namespace UrlShorten.Web.Middleware
             _next = next;
         }
 
-        public Task Invoke(HttpContext httpContext, IUserAgentService userAgentService)
+        public Task Invoke(HttpContext httpContext, IUserAgentService userAgentService, DummyDb db)
         {
             httpContext.Request.Headers.TryGetValue("User-Agent", out var uaHeader);
             var parsedUserAgent = userAgentService.ParserUserAgent(uaHeader);
 
-            if (httpContext.Request.Path.ToString() != "/")
+            if (httpContext.Request.Path.ToString().Length == 9)
             {
-                httpContext.Response.Redirect("https://github.com/SudiDav");
+                var token = httpContext.Request.Path.ToString().Substring(1); // remove the "/"
+                var shortUrl = db.ShortUrls.FirstOrDefault(su => su.Token == token);
+                if (shortUrl != null)
+                    httpContext.Response.Redirect(shortUrl.OriginalUrl.ToString());
+                else
+                    httpContext.Response.Redirect(httpContext.Request.Host.ToString());
             }
 
             return _next(httpContext);
